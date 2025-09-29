@@ -108,7 +108,8 @@
   object-fit: contain;
   border-radius: 8px;
 }
-.card.grade-S {
+.card.grade-S,
+.card.grade-SS {
   box-shadow: 0 0 15px 5px rgba(255, 215, 0, 0.8);
   animation: glow 1.5s infinite alternate;
   border-radius: 12px;
