@@ -745,6 +745,9 @@ export default function Home() {
           </section>
         </aside>
       </div>
+
+      {/* 이미지 영역 */}
+      <footer className="home-ad-banner"></footer>
     </div>
   );
 }

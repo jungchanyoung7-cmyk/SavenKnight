@@ -7,44 +7,33 @@ import "./SummonSimulation.css";
 const RATES = {
   normal: {
     // 1~99회
-    SS: { total: 0.4, pickup: 0.1 }, // 0.4% 전체, 픽업 각각 0.1%
-    S: { total: 0.6, pickup: 0.1 }, // 0.6% 전체, 픽업 각각 0.1%
-    A: { total: 14, pickup: 1.75 }, // 14%, 픽업 각각 1.75%
+    SS: { total: 0.4, pickup: 0.1 },
+    S: { total: 0.6, pickup: 0.1 },
+    A: { total: 14, pickup: 1.75 },
     B: { total: 40 },
     C: { total: 45 },
   },
   guarantee100: {
-    // 정확히 100회일 때(마지막 1장)
-    // SS 전체 40% (픽업 각각 10% — group1 최대 2 => 2*10=20 -> 나머지 SS 합쳐서 20)
-    // S 전체 60% (픽업 각각 10% — group2 최대 3 => 3*10=30 -> 나머지 S 합쳐서 30)
     SS: { total: 40, pickup: 10 },
     S: { total: 60, pickup: 10 },
   },
   after100: {
-    // 101~199회
-    // SS 0.4% (픽업 각각 0.2%), S 0.6% (픽업 각각 0.2%), A 14% (픽업 각각 3.5%)
-    SS: { total: 0.4, pickup: 0.2 },
     S: { total: 0.6, pickup: 0.2 },
     A: { total: 14, pickup: 3.5 },
     B: { total: 40 },
     C: { total: 45 },
   },
   guarantee200: {
-    // 정확히 200회일 때(마지막 1장)
-    // 픽업만 (각 픽업 20%): group1 최대 2, group2 최대 3 => 최대 5픽업 * 20% = 100%
     SS: { pickup: 20 },
     S: { pickup: 20 },
   },
 };
 
-// 위시리스트 그룹별 최대 선택 개수
 const MAX_SELECT = {
   group1: 2, // SS
   group2: 3, // S
   group3: 4, // A
 };
-
-// ---------------- 유틸 함수 ----------------
 
 // 가중치 랜덤 추출 (items, weights)
 function weightedRandom(items, weights) {
@@ -282,10 +271,6 @@ function summonTenHeroes(wishlistGroups, summonCount = 0) {
     // 확정 슬롯이면 별도 처리
     if (i === guaranteedSlot) {
       if (willHit200) {
-        // 200회 확정: SS/S 픽업만(각 픽업 20%) — 등급은 SS/S 중 랜덤(확률을 사용자 규칙에 맞게 SS/S로 나누지 않고, 선택된 픽업만으로 뽑음)
-        // 확정에서는 '픽업만' 대상이므로 등급은 후보 중 선택된 픽업의 등급 따라 결정됨
-        // 여기서는 우선 SS 픽업들 + S 픽업들을 합쳐 후보로 하고 동등 가중치로 뽑음 (각각 개별 픽업의 확률은 getHeroProbability에서 20%로 표시)
-        // 그래서 등급을 먼저 택하지 않고, getRandomHeroByGrade 대신 직접 픽업 목록에서 뽑음.
         const ssSelected = wishlistGroups.group1;
         const sSelected = wishlistGroups.group2;
         const pickupNames = [...ssSelected, ...sSelected];
