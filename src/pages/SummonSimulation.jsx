@@ -1,7 +1,10 @@
 import { useState } from "react";
-import heroes from "../data/heroes.json";
+import heroesData from "../data/heroes.json";
 import pets from "../data/pets.json";
 import "./SummonSimulation.css";
+
+// "아멜리아" 제거된 heroes 배열
+const heroes = heroesData.filter((h) => h.name !== "아멜리아");
 
 // ---------------- 확률 테이블 ----------------
 const RATES = {
