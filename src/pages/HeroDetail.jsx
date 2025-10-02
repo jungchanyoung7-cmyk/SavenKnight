@@ -1,4 +1,3 @@
-// HeroDetail.jsx (Firebase/추천 UI 완전 제거된 버전)
 import React, { useRef, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import heroes from "../data/heroes.json";
@@ -626,23 +625,21 @@ export default function HeroDetail() {
           {activeTab === "스탯" && (
             <div className="stat-section">
               <h3>스탯</h3>
-              {["S", "A"].includes(hero.grade) ? (
+              {["SS", "S", "A"].includes(hero.grade) ? (
                 <>
                   <div className="stat-list">
                     {(() => {
+                      const gradeKey = hero.grade === "SS" ? "S" : hero.grade;
                       const statBase =
-                        hero.grade && hero.type
+                        gradeKey && hero.type
                           ? level === 30
-                            ? maxStatByGradeAndType?.[hero.grade]?.[hero.type]
-                            : statByGradeAndType?.[hero.grade]?.[hero.type]
+                            ? maxStatByGradeAndType?.[gradeKey]?.[hero.type]
+                            : statByGradeAndType?.[gradeKey]?.[hero.type]
                           : null;
                       const enhanceBonus =
-                        hero.grade && hero.type
-                          ? enhanceBonusByGradeAndType?.[hero.grade]?.[
-                              hero.type
-                            ]
+                        gradeKey && hero.type
+                          ? enhanceBonusByGradeAndType?.[gradeKey]?.[hero.type]
                           : null;
-
                       const getFinalStat = (
                         base = 0,
                         enhancePerStep = 0,
