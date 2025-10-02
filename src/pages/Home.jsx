@@ -334,7 +334,7 @@ export default function Home() {
           {/* 업데이트 게시판 */}
           <section className="home-panel">
             <h2>업데이트 게시판</h2>
-            <ul>
+            <ul className="update-list">
               <li>
                 <a href="https://game.naver.com/lounge/sena_rebirth/board/detail/6738528">
                   [2025-10-02]업데이트 내역
