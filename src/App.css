@@ -38,7 +38,7 @@
 
 .github-btn {
   position: fixed;
-  bottom: 20px;
+  bottom: 80px;
   right: 20px;
   background-color: #24292f;
   padding: 12px;
@@ -53,6 +53,46 @@
 .github-btn:hover {
   transform: scale(1.1);
   background-color: #444c56;
+}
+
+/* 사운드 버튼 */
+.sound-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #555;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1000;
+  padding: 0;
+}
+
+/* 로고 이미지 */
+.sound-logo {
+  width: 70%;
+  height: 70%;
+  pointer-events: none;
+}
+
+/* 회전 애니메이션 */
+.rotate .sound-logo {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 426px) {

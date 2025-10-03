@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState, useRef, useEffect } from "react";
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import Dex from "./pages/Dex";
@@ -10,6 +11,29 @@ import GuildWar from "./pages/GuildWar";
 import "./App.css";
 
 function App() {
+  const [isPlaying, setIsPlaying] = useState(true);
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.play().catch(() => {
+        // 자동재생 막힐 경우 대비
+        setIsPlaying(false);
+      });
+    }
+  }, []);
+
+  const togglePlay = () => {
+    if (!audioRef.current) return;
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      audioRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
   return (
     <Router>
       <Header />
@@ -48,6 +72,17 @@ function App() {
           />
         </svg>
       </a>
+
+      {/* 사운드 버튼 */}
+      <button
+        className={`sound-btn ${isPlaying ? "rotate" : ""}`}
+        onClick={togglePlay}
+      >
+        <img src="/logo.png" alt="logo" className="sound-logo" />
+      </button>
+
+      {/* 오디오*/}
+      <audio ref={audioRef} src="/ost.mp3" loop />
     </Router>
   );
 }
