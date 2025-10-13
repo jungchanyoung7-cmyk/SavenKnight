@@ -237,6 +237,7 @@ export default function HeroDetail() {
       "약점 공격 확률",
       "마법 공격력",
       "증가",
+      "불굴",
     ];
 
     let highlighted = text;
