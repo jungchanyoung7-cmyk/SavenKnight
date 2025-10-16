@@ -238,6 +238,8 @@ export default function HeroDetail() {
       "마법 공격력",
       "증가",
       "불굴",
+      "강자 주시",
+      "즉사 턴 감소",
     ];
 
     let highlighted = text;

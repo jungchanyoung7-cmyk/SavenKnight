@@ -272,7 +272,7 @@ export default function Home() {
       start: "2025-09-18",
       end: "2025-10-02",
     },
-     {
+    {
       title: "카구라 & 아멜리아 업데이트",
       start: "2025-10-02",
       end: "2025-10-02",
@@ -282,10 +282,25 @@ export default function Home() {
       start: "2025-10-02",
       end: "2025-10-16",
     },
-     {
+    {
       title: "🌕보름달 맞이🌕 이벤트 안내",
       start: "2025-10-02",
       end: "2025-10-16",
+    },
+    {
+      title: "카일 & 아킬라 업데이트",
+      start: "2025-10-16",
+      end: "2025-10-16",
+    },
+    {
+      title: "카일 & 아킬라 소환 및 영웅 성장 이벤트",
+      start: "2025-10-16",
+      end: "2025-10-30",
+    },
+    {
+      title: "시나리오 이벤트 [하늘이 멸한 폭풍의 뿌리]",
+      start: "2025-10-16",
+      end: "2025-10-30",
     },
   ]);
 
@@ -335,6 +350,11 @@ export default function Home() {
           <section className="home-panel">
             <h2>업데이트 게시판</h2>
             <ul className="update-list">
+              <li>
+                <a href="https://game.naver.com/lounge/sena_rebirth/board/detail/6797065">
+                  [2025-10-16]업데이트 내역
+                </a>
+              </li>
               <li>
                 <a href="https://game.naver.com/lounge/sena_rebirth/board/detail/6738528">
                   [2025-10-02]업데이트 내역
@@ -425,9 +445,25 @@ export default function Home() {
               slidesToScroll={1}
               className="youtube-slider"
             >
-               <div className="youtube-slide">
+              <div className="youtube-slide">
                 <iframe
-                  src="https://www.youtube.com/embed/NqlVWEFUG2k?si=hq0v6kSCPuo6S6Ue" 
+                  src="https://www.youtube.com/embed/4vyr3qgp34g?si=445MmppyMwm8TLvd"
+                  title="Video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="youtube-slide">
+                <iframe
+                  src="https://www.youtube.com/embed/-1D5piRKdCw?si=lXYAOQwYIcO8lne_"
+                  title="Video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="youtube-slide">
+                <iframe
+                  src="https://www.youtube.com/embed/NqlVWEFUG2k?si=hq0v6kSCPuo6S6Ue"
                   title="Video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
